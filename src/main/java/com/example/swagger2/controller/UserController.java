@@ -1,5 +1,6 @@
 package com.example.swagger2.controller;
 
+import com.example.swagger2.entity.ResponseInfo.Result;
 import com.example.swagger2.entity.User;
 import com.example.swagger2.service.UserService;
 import com.example.swagger2.service.impl.UserServiceImpl;
@@ -30,8 +31,12 @@ public class UserController {
 
     @ApiOperation("获取列表")
     @GetMapping("list")
-    public List userList() {
-        return userList;
+    public Result userList() {
+        Result result = new Result();
+        result.setData(userList);
+        result.setSuccess(true);
+        result.setMsg("成功");
+        return result;
     }
 
     @ApiOperation("新增用户")
