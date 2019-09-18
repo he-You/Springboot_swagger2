@@ -1,6 +1,7 @@
 package com.example.swagger2.controller;
 
 import com.example.swagger2.RequsetBody.ReqLogin;
+import com.example.swagger2.entity.ResponseInfo.Result;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,8 +30,9 @@ public class TestController {
         return map;
     }
     @RequestMapping("login")
-    private String login(@RequestBody ReqLogin reqInfo){
+    private Result login(@RequestBody ReqLogin reqInfo){
        System.out.println("用户名："+reqInfo.getUserName()+"密码："+reqInfo.getPassword());
-        return "成功";
+
+        return new Result(true,"成功");
     }
 }
