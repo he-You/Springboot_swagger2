@@ -2,7 +2,6 @@ package com.example.swagger2.controller;
 
 import com.example.swagger2.entity.ResponseInfo.Result;
 import com.example.swagger2.entity.User;
-import com.example.swagger2.service.UserService;
 import com.example.swagger2.service.impl.UserServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -18,7 +17,7 @@ import java.util.List;
  */
 @Api("用户信息管理")
 @RestController
-@RequestMapping("/user/*")
+@RequestMapping("/user")
 public class UserController {
     @Resource
     UserServiceImpl userService;
@@ -30,7 +29,7 @@ public class UserController {
     }
 
     @ApiOperation("获取列表")
-    @GetMapping("list")
+    @RequestMapping("/list")
     public Result userList() {
         Result result = new Result();
         result.setData(userList);
