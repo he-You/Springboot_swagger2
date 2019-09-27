@@ -2,7 +2,6 @@ package com.example.swagger2.controller;
 
 import com.example.swagger2.entity.ResponseInfo.Result;
 import com.example.swagger2.entity.User;
-import com.example.swagger2.service.UserService;
 import com.example.swagger2.service.impl.UserServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -22,9 +21,7 @@ import java.util.List;
 public class UserController {
     @Resource
     UserServiceImpl userService;
-    private final static List<User> userList = new ArrayList<>();
-
-    {
+    private final static List<User> userList = new ArrayList<>();{
         userList.add(new User(1, "admin", "123456"));
         userList.add(new User(2, "jacks", "111111"));
     }
